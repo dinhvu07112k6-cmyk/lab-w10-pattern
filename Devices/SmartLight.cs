@@ -4,6 +4,7 @@
 /****************/
 
 using lab_w10_pattern.Interface;
+
 namespace lab_w10_pattern.Devices
 {
     public class SmartLight : IDevice
