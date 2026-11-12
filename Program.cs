@@ -1,4 +1,5 @@
-﻿using lab_w10_pattern.Devices;
+﻿using lab_10.Patterns;
+using lab_w10_pattern.Devices;
 using lab_w10_pattern.Interface;
 using lab_w10_pattern.Patterns;
 using System;
@@ -47,3 +48,22 @@ catch (ArgumentException e)
 {
     Console.WriteLine(e.Message);
 }
+
+Console.WriteLine("--- Singleton ---");
+
+HomeConfiguration config1 = HomeConfiguration.Instance;
+HomeConfiguration config2 = HomeConfiguration.Instance;
+
+bool sameInstance = ReferenceEquals(config1, config2);
+Console.WriteLine($"Same instance: {sameInstance}");
+
+if (!sameInstance)
+{
+    throw new Exception("Singleton implementation is incorrect.");
+}
+
+config1.HomeName = "Vu Home";
+config1.NightLightLevel = 20;
+
+Console.WriteLine(config2.HomeName);
+Console.WriteLine(config2.NightLightLevel);
