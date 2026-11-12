@@ -23,7 +23,7 @@ Console.OutputEncoding = Encoding.UTF8; // dùng bảng mã UTF-8 để hiển t
 //door.Lock();
 //door.Unlock();
 
-// Phần 2: Sử dụng DeviceFactory để tạo các thiết bị
+// Phần 2: Pattern
 IDevice light = DeviceFactory.Create(" LIGHT ", "Living room light");
 IDevice fan = DeviceFactory.Create("fan", "Living room fan");
 IDevice door = DeviceFactory.Create("door", "Main door");
@@ -67,3 +67,22 @@ config1.NightLightLevel = 20;
 
 Console.WriteLine(config2.HomeName);
 Console.WriteLine(config2.NightLightLevel);
+
+Console.WriteLine("--- Facade ---");
+
+if (door is ILockable mainDoor)
+{
+    SmartHomeFacade facade =
+        new SmartHomeFacade(light, fan, mainDoor);
+
+    Console.WriteLine("Go to work:");
+    facade.GoToWork();
+
+    Console.WriteLine("Go to sleep:");
+    facade.GoToSleep();
+}
+else
+{
+    throw new InvalidOperationException(
+        "The main door must support locking.");
+}
