@@ -4,9 +4,9 @@
 /****************/
 
 
-using lab_w10_pattern.Interface;        
+using lab_w10_pattern.Interface;
 
-namespace lab_10.Patterns
+namespace lab_w10_pattern.Patterns
 {
     public sealed class SmartHomeFacade
     {
@@ -38,7 +38,7 @@ namespace lab_10.Patterns
             light.TurnOn();
 
             int level = HomeConfiguration.Instance.NightLightLevel;
-            Console.WriteLine($"Night light level: {level}%");
+            Console.WriteLine($"Night light level : {level}%");
         }
     }
 }

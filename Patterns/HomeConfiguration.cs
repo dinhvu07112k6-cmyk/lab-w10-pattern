@@ -4,7 +4,7 @@
 /****************/
 
 
-namespace lab_10.Patterns
+namespace lab_w10_pattern.Patterns
 {
     public sealed class HomeConfiguration
     {
